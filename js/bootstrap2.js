@@ -5031,7 +5031,8 @@
     minute = second * 60,
     hour = minute * 60,
     day = hour * 24;
-  let countDown1 = new Date("05/31/2022").getTime();
+  let dt = getNextDayOfWeek();
+  let countDown1 = dt.getTime();
   let x1 = setInterval(function () {
     const now = new Date().getTime(),
       distance = countDown1 - now;
@@ -5074,5 +5075,16 @@
         );
     });
   }, 1500);
+
+  function getNextDayOfWeek() {
+    // Code to check that date and dayOfWeek are valid left as an exercise ;)
+    let oggi = new Date();
+    var resultDate = new Date();
+    resultDate.setHours(23, 59, 59);
+
+    resultDate.setDate(oggi.getDate() + ((7 - oggi.getDay()) % 7));
+
+    return resultDate;
+  }
 });
 //# sourceMappingURL=bootstrap.js.map
